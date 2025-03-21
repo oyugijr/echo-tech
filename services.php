@@ -46,7 +46,22 @@
                 <h3>Assessment</h3>
                 <p>We begin by thoroughly assessing your current operations, identifying opportunities for sustainability improvements.</p>
             </div>
-            <!-- Repeat for steps 2-4 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Design</h3>
+                <p>Our team designs custom solutions tailored to your specific needs, goals, and constraints.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Implementation</h3>
+                <p>We handle the complete implementation of your sustainable technology solutions, ensuring minimal disruption.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Monitoring & Optimization</h3>
+                <p>We provide ongoing monitoring and optimization to ensure your systems continue to perform at their best.</p>
+            </div>
+            <!-- Repeat for steps -->
         </div>
     </section>
 
