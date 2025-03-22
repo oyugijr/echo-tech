@@ -18,35 +18,39 @@
     </section>
 
     <div class="projects-grid">
-        <?php 
-        $stmt = $pdo->query("SELECT * FROM projects ORDER BY year DESC");
-        while ($project = $stmt->fetch()):
-        ?>
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-client"><?= htmlspecialchars($project['client']) ?> <?= htmlspecialchars($project['year']) ?></div>
-                <h2 class="project-title"><?= htmlspecialchars($project['title']) ?></h2>
-            </div>
-            <div class="project-details">
-                <p class="project-description"><?= htmlspecialchars($project['description']) ?></p>
-                <div class="project-location">Locations: <?= htmlspecialchars($project['location']) ?></div>
-                <a href="#" class="project-link">
-                    View Details
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
+    <?php 
+    $stmt = $pdo->query("SELECT * FROM projects ORDER BY year DESC");
+    while ($project = $stmt->fetch()):
+    ?>
+    <div class="project-card">
+        <div class="project-image" style="background-image: url('images/projects/<?= htmlspecialchars($project['image']) ?>')"></div>
+        <div class="project-header">
+            <div class="project-client"><?= htmlspecialchars($project['client']) ?> <?= htmlspecialchars($project['year']) ?></div>
+            <h2 class="project-title"><?= htmlspecialchars($project['title']) ?></h2>
         </div>
-        <?php endwhile; ?>
+        <div class="project-details">
+            <p class="project-description"><?= htmlspecialchars($project['description']) ?></p>
+            <div class="project-location">Locations: <?= htmlspecialchars($project['location']) ?></div>
+            <a href="#" class="project-link">
+                View Details
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
     </div>
+    <?php endwhile; ?>
+</div>
 
-    <section class="case-studies">
-        <h2>Featured Case Studies</h2>
-        <div class="case-study-grid">
-            <!-- Case Study 1 -->
-            <div class="case-study-card">
+<section class="case-studies">
+    <h2>Featured Case Studies</h2>
+    <div class="case-study-grid">
+        <!-- Case Study 1 -->
+        <div class="case-study-card">
+            <div class="case-study-image" style="background-image: url('images/case-studies/carbon-footprint.jpg')"></div>
+            <div class="case-study-content">
                 <h3>Reducing Carbon Footprint for Global Tech Company</h3>
+                <p class="case-study-description">How we helped a Fortune 500 tech company reduce their carbon emissions by 30% while cutting energy costs.</p>
                 <div class="stats-row">
                     <div class="stat-item">
                         <div class="stat-value">30%</div>
@@ -61,12 +65,21 @@
                         <div class="stat-label">Months</div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary">Read Full Case Study</a>
+                <a href="#" class="btn btn-primary">
+                    Read Full Case Study
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
-            
-            <!-- Case Study 2 -->
-            <div class="case-study-card">
+        </div>
+        
+        <!-- Case Study 2 -->
+        <div class="case-study-card">
+            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation.jpg')"></div>
+            <div class="case-study-content">
                 <h3>Water Conservation for Hospitality Chain</h3>
+                <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
                 <div class="stats-row">
                     <div class="stat-item">
                         <div class="stat-value">42M</div>
@@ -81,10 +94,16 @@
                         <div class="stat-label">Months</div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary">Read Full Case Study</a>
+                <a href="#" class="btn btn-primary">
+                    Read Full Case Study
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- <?php include 'includes/footer.php'; ?> -->
 </main>

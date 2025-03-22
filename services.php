@@ -18,25 +18,26 @@
     </section>
 
     <div class="services-grid">
-        <?php 
-        $stmt = $pdo->query("SELECT * FROM services");
-        while ($service = $stmt->fetch()):
-        ?>
-        <div class="service-card">
-            <div class="service-header">
-                <h2><?= htmlspecialchars($service['title']) ?></h2>
-                <p><?= htmlspecialchars($service['description']) ?></p>
-            </div>
-            <ul class="service-features">
-                <?php $features = json_decode($service['features']); ?>
-                <?php foreach ($features as $feature): ?>
-                <li><?= htmlspecialchars($feature) ?></li>
-                <?php endforeach; ?>
-            </ul>
-            <a href="#" class="learn-more">Learn More →</a>
+    <?php 
+    $stmt = $pdo->query("SELECT * FROM services");
+    while ($service = $stmt->fetch()):
+    ?>
+    <div class="service-card">
+        <div class="service-image" style="background-image: url('images/services/<?= htmlspecialchars($service['image']) ?>')"></div>
+        <div class="service-header">
+            <h2><?= htmlspecialchars($service['title']) ?></h2>
+            <p><?= htmlspecialchars($service['description']) ?></p>
         </div>
-        <?php endwhile; ?>
+        <ul class="service-features">
+            <?php $features = json_decode($service['features']); ?>
+            <?php foreach ($features as $feature): ?>
+            <li><?= htmlspecialchars($feature) ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <a href="#" class="learn-more">Learn More →</a>
     </div>
+    <?php endwhile; ?>
+</div>
 
     <section class="process-section">
         <h2>Our Process</h2>
