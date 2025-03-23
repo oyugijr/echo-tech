@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=       , initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/contact.css">
-    <title>Document</title>
+    <title>Contact Us - EcoTech Solutions</title>
 </head>
 <body>
 <?php include 'includes/header.php'; ?>
 
 <main class="contact-page">
+     <!-- Page Header Section -->
+     <section class="contact-header">
+        <h1>Contact Us</h1>
+        <p class="header-subtext">Have questions about our sustainable technology solutions? Get in touch with our team today.</p>
+    </section>
+
     <div class="contact-container">
         <!-- Contact Form Section -->
         <section class="contact-form-section">
-            <h1>Contact Us</h1>
-            <p class="contact-intro">Have questions about our sustainable technology solutions? Get in touch with our team today.</p>
-            
+            <!-- <h1>Contact Us</h1> -->
+            <!-- <p class="contact-intro">Have questions about our sustainable technology solutions? Get in touch with our team today.</p> -->
+            <h2>Send Us a Message</h2>
             <form class="contact-form" id="contactForm" action="/cgi-bin/process_form.py" method="POST">
                 <div class="form-row">
                     <div class="form-group">
@@ -74,22 +80,26 @@
 
                     <div class="detail-group">
                         <h3>Email</h3>
-                        <p>General: info@ecotechsolutions.com<br>
-                        Support: support@ecotechsolutions.com<br>
-                        Sales: sales@ecotechsolutions.com</p>
+                        <p>
+                            General: info@ecotechsolutions.com<br>
+                            Support: support@ecotechsolutions.com<br>
+                            Sales: sales@ecotechsolutions.com
+                        </p>
                     </div>
 
                     <div class="detail-group">
                         <h3>Business Hours</h3>
-                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
-                        Saturday: 9:00 AM - 2:00 PM<br>
-                        Sunday: Closed</p>
+                        <p>
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 2:00 PM<br>
+                            Sunday: Closed
+                        </p>
                     </div>
                 </div>
 
                 <!-- <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.6789!2d-0.123456!3d51.5074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzI2LjgiTiAwwrAwNyczOS42Ilc!5e0!3m2!1sen!2suk!4v1620000000000!5m2!1sen!2suk" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.32335424496!2d36.84739685!3d-1.3032089500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1742586530370!5m2!1sen!2ske" 
                         width="100%" 
                         height="300" 
                         style="border:0;" 
