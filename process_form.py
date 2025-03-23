@@ -4,8 +4,22 @@ import smtplib
 import re
 from email.mime.text import MIMEText
 from email.utils import formatdate
+# from email.message import EmailMessage
+
+# # Database connection details
+# DB_HOST = "localhost"
+# DB_USER = "root"
+# DB_PASS = ""
+# DB_NAME = "ecotech"
+
+# # Email settings (use your SMTP server credentials)
+# SMTP_SERVER = "smtp.gmail.com"  # Change if using another provider
+# SMTP_PORT = 587
+# EMAIL_SENDER = "your_email@gmail.com"
+# EMAIL_PASSWORD = "your_email_password"  # Use an App Password if using Gmail
 
 def validate_input(data):
+    """ Validate user input and return errors if any. """
     errors = {}
     
     # Name validation
@@ -39,6 +53,24 @@ def validate_input(data):
         'message': message.strip()
     }
 
+# def insert_into_database(data):
+#     """ Insert validated form data into MySQL database. """
+#     try:
+#         conn = pymysql.connect(host=DB_HOST, user=DB_USER, password=DB_PASS, database=DB_NAME)
+#         cursor = conn.cursor()
+
+#         query = """
+#         INSERT INTO contacts (name, email, phone, company, message)
+#         VALUES (%s, %s, %s, %s, %s)
+#         """
+#         cursor.execute(query, (data['name'], data['email'], data['phone'], data['company'], data['message']))
+#         conn.commit()
+#         conn.close()
+#         return True
+#     except Exception as e:
+#         print(f"Error inserting data: {str(e)}")
+#         return False
+
 def send_email(data):
     msg = MIMEText(f"""
     New Contact Form Submission:
@@ -62,6 +94,34 @@ def send_email(data):
         print(f"Error sending email: {str(e)}")
         return False
 
+
+# def send_email(to_email, user_name):
+#     """ Send a thank-you email to the user. """
+#     try:
+#         msg = EmailMessage()
+#         msg['Subject'] = "Thank You for Contacting Us!"
+#         msg['From'] = EMAIL_SENDER
+#         msg['To'] = to_email
+#         msg.set_content(f"""
+#         Hi {user_name},
+
+#         Thank you for reaching out to us! We have received your message and will get back to you within 24 business hours.
+
+#         Best regards,  
+#         Your Company Team
+#         """)
+
+#         # Connect to SMTP server and send email
+#         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+#             server.starttls()  # Secure the connection
+#             server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+#             server.send_message(msg)
+
+#         return True
+#     except Exception as e:
+#         print(f"Error sending email: {str(e)}")
+#         return False
+
 def show_error_page(errors):
     print("Content-type: text/html\n")
     print("""
@@ -84,6 +144,18 @@ def main():
     if errors:
         show_error_page(errors)
         return
+
+    # if insert_into_database(clean_data):
+    #     print("Content-type: text/html\n")
+    #     print("""
+    #     <html>
+    #     <head><title>Thank You</title></head>
+    #     <body>
+    #         <h1>Thank you for your message!</h1>
+    #         <p>We will respond within 24 business hours.</p>
+    #         <a href="/">Return to Homepage</a>
+    #     </body>
+    #     </html>""")
     
     if send_email(clean_data):
         print("Content-type: text/html\n")
