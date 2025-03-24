@@ -1,244 +1,239 @@
 /* projects.css */
 .projects-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-  }
-  
-  /* Intro Section */
-  .projects-intro {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-  
-  .projects-intro h1 {
-    font-size: 2.5rem;
-    color: #2d3748;
-    margin-bottom: 1.5rem;
-  }
-  
-  .projects-intro p {
-    color: #718096;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  /* Projects Grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-  
-  .project-card {
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: transform 0.2s ease;
-  }
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .project-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .project-image {
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .project-header {
-    padding: 1rem 1.25rem 0.5rem;
-    /* border-bottom: 1px solid #e2e8f0; */
-  }
-  
-  .project-client {
+.projects-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-intro h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.projects-intro p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.project-client {
+  color: #27ae60;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.project-details {
+  padding: 1.5rem;
+}
+
+.project-description {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-location {
+  color: #34495e;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  color: #27ae60;
+  text-decoration: none;
+  font-weight: 600;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #219a52;
+}
+/* Add to projects.css */
+.project-client {
+    color: #27ae60;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     display: flex;
-    justify-content: space-between;
-    /* color: #718096; */
-    color: #6b7280;
-    letter-spacing: 0.05em;
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .project-title {
-    color: #2d3748;
-    font-size: 1.1rem;
-    margin: 0 0 0.75rem;
-    line-height: 1.3;
-  }
-  
-  .project-details {
-    padding: 0 1.25rem 1.25rem;
-  }
-  
-  .project-description {
-    font-size: 0.875rem;
-    color: #4a5568;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .project-location {
-    color: #718096;
-    font-size: 0.75rem;
-    margin-bottom: 1rem;
-  }
-  
-  .project-link {
-    font-size: 0.875rem;
-    gap: 0.25rem;
-    display: inline-flex;
+    gap: 0.5rem;
     align-items: center;
-    color: #48bb78;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .project-link svg {
-    /* margin-left: 0.5rem; */
-    width: 16px;
-    height: 16px;
-    stroke-width: 2;
-    transition: transform 0.2s;
-  }
-  
-  .project-link:hover svg {
-    transform: translateX(3px);
-  }
-  
- /* Case Studies Section */
+}
+
+.project-client:empty {
+    display: none;
+}
+
+.project-client::before {
+    content: '·';
+    display: inline-block;
+    margin-right: 0.25rem;
+}
+
+.project-client:first-child::before {
+    display: none;
+}
+
+/* Case Studies Section */
 .case-studies {
-    margin: 6rem 0 4rem;
-  }
-  
-  .case-studies h2 {
-    font-size: 2rem;
-    color: #1a365d;
-    margin-bottom: 3.5rem;
-    text-align: center;
-    font-weight: 600;
-  }
-  
-  .case-study-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-  
+  margin-top: 4rem;
+}
+
+.case-studies h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+}
+
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.case-study-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.case-study-content {
+  padding: 2rem;
+}
+
+.case-study-content h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.case-study-description {
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  color: #27ae60;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: #34495e;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: #27ae60;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #219a52;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .case-study-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+      grid-template-columns: 1fr;
   }
   
-  .case-study-card h3 {
-    color: #2d3748;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-  
-  .case-study-description {
-    color: #718096;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+  .case-study-image {
+      height: 200px;
   }
   
   .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      gap: 1.5rem;
   }
-  
-  .stat-item {
-    text-align: center;
-    padding: 0 0.5rem;
-  }
-  
-  .stat-value {
-    color: #38a169;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.5px;
-  }
-  
-  .stat-label {
-    color: #4a5568;
-    font-size: 0.875rem;
-    line-height: 1.4;
-  }
-  
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #38a169;
-    color: white;
-    padding: 0.875rem 1.75rem;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    text-decoration: none;
-  }
-  
-  .btn-primary svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 1.5;
-  }
-  
-  .btn-primary:hover {
-    background: #2f855d;
-    transform: translateY(-1px);
-  }
-  
-  @media (max-width: 768px) {
-    .case-study-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .case-study-card {
-      padding: 1.5rem;
-    }
-    
-    .case-study-card h3 {
-      font-size: 1.3rem;
-    }
-  }
+}
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .projects-main {
-      padding: 1rem;
-    }
-    
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .project-image {
-        height: 160px;
-    }
-    .project-header {
-        padding: 0.75rem 1rem 0.25rem;
-    }
+@media (max-width: 480px) {
+  .projects-main {
+      padding: 2rem 1rem;
   }
+  
+  .projects-grid {
+      grid-template-columns: 1fr;
+  }
+}

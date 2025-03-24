@@ -76,7 +76,7 @@
         
         <!-- Case Study 2 -->
         <div class="case-study-card">
-            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation.jpg')"></div>
+            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.jpg')"></div>
             <div class="case-study-content">
                 <h3>Water Conservation for Hospitality Chain</h3>
                 <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
