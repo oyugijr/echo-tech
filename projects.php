@@ -30,7 +30,7 @@
         </div>
         <div class="project-details">
             <p class="project-description"><?= htmlspecialchars($project['description']) ?></p>
-            <div class="project-location">Locations: <?= htmlspecialchars($project['location']) ?></div>
+            <div class="project-location"><strong>Locations:</strong> <?= htmlspecialchars($project['location']) ?></div>
             <a href="#" class="project-link">
                 View Details
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -76,7 +76,7 @@
         
         <!-- Case Study 2 -->
         <div class="case-study-card">
-            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.jpg')"></div>
+            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.png')"></div>
             <div class="case-study-content">
                 <h3>Water Conservation for Hospitality Chain</h3>
                 <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
