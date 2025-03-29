@@ -8,7 +8,7 @@
 .projects-intro {
   text-align: center;
   margin-bottom: 4rem;
-  margin-top: 4rem;
+  margin-top: 8rem;
 }
 
 .projects-intro h1 {
@@ -75,14 +75,14 @@
   color: #7f8c8d;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-location {
   color: #34495e;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-link {
