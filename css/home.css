@@ -5,7 +5,8 @@
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), url('../images/hero-bg.jpg'));
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), url('../images/hero-bg.jpg')); */
+    background-image: url(images/hero-bg.jpg);
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -47,6 +48,10 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+.section-container h2 { 
+    text-align: center;
 }
 
 .section-intro {
@@ -96,6 +101,10 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    text-align: center;
 }
 
 .view-all {
@@ -154,6 +163,11 @@
 
 .cta-content h2 {
     margin-bottom: 1rem;
+}
+
+.cta-content .cta-button {
+    background: #2e3e50;
+    color: white !important;
 }
 
 /* Responsive Design */

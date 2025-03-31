@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Case Studies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafa;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .case-studies {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            width: 555px;
+            flex-direction: row;
+        }
+
+        .image-placeholder {
+            width: 50%;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            padding: 20px;
+            width: 50%;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .stats {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            color: #16a34a;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #555;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h2 class="title">Featured Case Studies</h2>
+        <section class="case-studies">
+            <article class="card">
+                <figure class="image-placeholder"></figure>
+                <div class="content">
+                    <h3>Reducing Carbon Footprint for Global Tech Company</h3>
+                    <p>How we helped a Fortune 500 tech company reduce their carbon emissions by 30% while cutting energy costs.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-value">30%</div>
+                            <div class="stat-label">Carbon Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$2.4M</div>
+                            <div class="stat-label">Energy Cost Savings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">8 months</div>
+                            <div class="stat-label">Implementation Time</div>
+                        </div>
+                    </div>
+                    <button>Read Full Case Study</button>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="image-placeholder"></figure>
+                <div class="content">
+                    <h3>Water Conservation for Hospitality Chain</h3>
+                    <p>A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-value">42M gallons/year</div>
+                            <div class="stat-label">Water Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">37%</div>
+                            <div class="stat-label">Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">18 months</div>
+                            <div class="stat-label">ROI Timeline</div>
+                        </div>
+                    </div>
+                    <button>Read Full Case Study</button>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

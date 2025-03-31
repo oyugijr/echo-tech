@@ -69,7 +69,7 @@
                 while ($project = $stmt->fetch()):
                 ?>
                 <div class="project-card">
-                    <img src="images/projects<?= htmlspecialchars($project['image']) ?>" alt="<?= htmlspecialchars($project['title']) ?>">
+                    <img src="images/projects/<?= htmlspecialchars($project['image']) ?>" alt="<?= htmlspecialchars($project['title']) ?>">
                     <div class="project-info">
                         <h3><?= htmlspecialchars($project['title']) ?></h3>
                         <p><?= htmlspecialchars($project['description']) ?></p>

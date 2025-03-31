@@ -102,6 +102,62 @@
                 </a>
             </div>
         </div>
+        <!-- case study 3 -->
+        <div class="case-study-card">
+            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.png')"></div>
+            <div class="case-study-content">
+                <h3>Water Conservation for Hospitality Chain</h3>
+                <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-value">42M</div>
+                        <div class="stat-label">Gallons Saved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">37%</div>
+                        <div class="stat-label">Reduction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Months</div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary">
+                    Read Full Case Study
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- Case study 4 -->
+        <div class="case-study-card">
+            <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.png')"></div>
+            <div class="case-study-content">
+                <h3>Water Conservation for Hospitality Chain</h3>
+                <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-value">42M</div>
+                        <div class="stat-label">Gallons Saved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">37%</div>
+                        <div class="stat-label">Reduction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Months</div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary">
+                    Read Full Case Study
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 

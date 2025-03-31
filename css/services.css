@@ -146,7 +146,8 @@
 }
 
 .cta-section {
-    background: #2c3e50;
+    background: #2ecc71;
+    /* background: #2c3e50; */
     color: white;
     text-align: center;
     padding: 4rem 20px;
@@ -163,7 +164,7 @@
 }
 
 .cta-button {
-    background: #2ecc71;
+    background: #2c3e50;
     color: white;
     padding: 1rem 2rem;
     border: none;

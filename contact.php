@@ -20,8 +20,6 @@
     <div class="contact-container">
         <!-- Contact Form Section -->
         <section class="contact-form-section">
-            <!-- <h1>Contact Us</h1> -->
-            <!-- <p class="contact-intro">Have questions about our sustainable technology solutions? Get in touch with our team today.</p> -->
             <h2>Send Us a Message</h2>
             <form class="contact-form" id="contactForm" action="/cgi-bin/process_form.py" method="POST">
                 <div class="form-row">

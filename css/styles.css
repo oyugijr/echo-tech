@@ -145,7 +145,7 @@ h3 { font-size: 1.5rem; }
 }
 
 /* Footer */
-.site-footer {
+/* .site-footer {
     background: var(--dark-bg);
     color: var(--text-light);
     padding: 3rem 5%;
@@ -162,7 +162,7 @@ h3 { font-size: 1.5rem; }
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
