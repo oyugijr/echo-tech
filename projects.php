@@ -106,19 +106,19 @@
         <div class="case-study-card">
             <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.png')"></div>
             <div class="case-study-content">
-                <h3>Water Conservation for Hospitality Chain</h3>
-                <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
+                <h3>Optimizing Supply Chain for Retail Giant</h3>
+                <p class="case-study-description">We implemented a smart logistics system that improved delivery efficiency and reduced costs by 25%.</p>
                 <div class="stats-row">
                     <div class="stat-item">
-                        <div class="stat-value">42M</div>
-                        <div class="stat-label">Gallons Saved</div>
+                        <div class="stat-value">25%</div>
+                        <div class="stat-label">Cost Reduction</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">37%</div>
-                        <div class="stat-label">Reduction</div>
+                        <div class="stat-value">50%</div>
+                        <div class="stat-label">Faster Deliveries</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">18</div>
+                        <div class="stat-value">12</div>
                         <div class="stat-label">Months</div>
                     </div>
                 </div>
@@ -134,19 +134,19 @@
         <div class="case-study-card">
             <div class="case-study-image" style="background-image: url('images/case-studies/water-conservation-system.png')"></div>
             <div class="case-study-content">
-                <h3>Water Conservation for Hospitality Chain</h3>
-                <p class="case-study-description">A comprehensive water management solution that dramatically reduced consumption across 12 hotel properties.</p>
+                <h3>AI-Powered Fraud Detection for Financial Institution</h3>
+                <p class="case-study-description">Our AI-driven fraud detection system reduced false positives and increased fraud detection rates by 40%.</p>
                 <div class="stats-row">
                     <div class="stat-item">
-                        <div class="stat-value">42M</div>
-                        <div class="stat-label">Gallons Saved</div>
+                        <div class="stat-value">40%</div>
+                        <div class="stat-label">Detection Increase</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">37%</div>
-                        <div class="stat-label">Reduction</div>
+                        <div class="stat-value">60%</div>
+                        <div class="stat-label">Positive Reduction</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">18</div>
+                        <div class="stat-value">6</div>
                         <div class="stat-label">Months</div>
                     </div>
                 </div>
