@@ -89,7 +89,3 @@ Using Composer:
 ```sh
 vendor/bin/phpunit
 ```
-
----
-
-🔙 [Return](#)
