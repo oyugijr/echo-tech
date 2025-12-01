@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
+    <title>Projects - EcoTech Solutions</title>
 </head>
 <body>
 <?php include 'includes/header.php'; ?>

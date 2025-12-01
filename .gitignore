@@ -1,3 +1,12 @@
+# Environment variables
 .env
-composer.json
-composer.lock
+
+# IDE settings
+.vscode/
+
+# Dependencies (vendor is typically not committed)
+/vendor/
+
+# OS files
+.DS_Store
+Thumbs.db

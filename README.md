@@ -70,6 +70,15 @@ Build Echo-Tech from the source and install dependencies:
    composer install
    ```
 
+4. **Configure environment variables:**
+   Copy the example environment file and update it with your settings:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+   Then edit `.env` with your database credentials and email settings.
+
 ### Usage
 
 Run the project with:
@@ -82,7 +91,7 @@ php (entrypoint)
 
 ### Testing
 
-Echo-Tech uses the **{test_framework}** test framework. Run the test suite with:
+Echo-Tech uses **PHPUnit** for testing. Run the test suite with:
 
 Using Composer:
 
