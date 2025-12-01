@@ -76,8 +76,7 @@ document.querySelectorAll('[id$="NewsletterForm"]').forEach(form => {
             }
         })
         .catch(error => {
-            alert('Thank you for subscribing!');
-            this.reset();
+            alert('An error occurred. Please try again later.');
         })
         .finally(() => {
             button.innerHTML = originalText;

@@ -92,7 +92,11 @@ include 'includes/header.php';
         </div>
         
         <div class="post-content">
-            <?= $post['content'] ?>
+            <?php 
+            // Note: Blog content contains trusted HTML from admin/database
+            // Do NOT use this pattern for user-generated content
+            echo $post['content']; 
+            ?>
         </div>
         
         <footer class="post-footer">

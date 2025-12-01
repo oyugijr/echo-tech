@@ -58,7 +58,7 @@ $query = htmlspecialchars($_GET['q'] ?? '');
 <?php if ($query): ?>
 // Perform search when page loads with query
 document.addEventListener('DOMContentLoaded', function() {
-    const query = '<?= addslashes($query) ?>';
+    const query = <?= json_encode($query) ?>;
     performSearch(query);
 });
 
