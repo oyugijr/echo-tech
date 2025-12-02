@@ -1,3 +1,9 @@
+<?php
+// Include auth if not already included
+if (!function_exists('isLoggedIn')) {
+    require_once __DIR__ . '/auth.php';
+}
+?>
 <header class="main-header">
     <nav class="navbar">
         <div class="logo">
@@ -9,8 +15,14 @@
             <li><a href="about.php">About</a></li>
             <li><a href="services.php">Services</a></li>
             <li><a href="projects.php">Projects</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li class="cta-link"><a href="contact.php" class="cta-button">Get Started</a></li>
+            <li><a href="search.php" class="nav-search" aria-label="Search">🔍</a></li>
+            <?php if (isLoggedIn()): ?>
+                <li class="cta-link"><a href="dashboard.php" class="cta-button">Dashboard</a></li>
+            <?php else: ?>
+                <li class="cta-link"><a href="login.php" class="cta-button">Sign In</a></li>
+            <?php endif; ?>
         </ul>
 
         <div class="hamburger">
