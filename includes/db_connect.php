@@ -1,30 +1,12 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+/**
+ * Database Connection
+ * 
+ * This file provides backward compatibility by delegating to the Core Database module.
+ * For new code, use the Application instance and its database() method.
+ */
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+require_once __DIR__ . '/../bootstrap.php';
 
-$host = $_ENV['DB_HOST'] ?? 'localhost';
-$db   = $_ENV['DB_NAME'] ?? 'ecotech';
-$user = $_ENV['DB_USER'] ?? 'root';
-$pass = $_ENV['DB_PASS'] ?? '';
-$charset = $_ENV['DB_CHARSET'] ?? 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
-$pdo = null;
-$db_error = null;
-
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    $db_error = $e->getMessage();
-    // Log error but don't throw - allow pages to load without database
-    error_log("Database connection failed: " . $db_error);
-}
-?>
+// The $pdo and $db_error variables are now set in bootstrap.php
+// This file is kept for backward compatibility with existing includes

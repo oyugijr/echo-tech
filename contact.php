@@ -8,7 +8,10 @@
     <title>Contact Us - EcoTech Solutions</title>
 </head>
 <body>
-<?php include 'includes/header.php'; ?>
+<?php 
+require_once __DIR__ . '/bootstrap.php';
+include 'includes/header.php'; 
+?>
 
 <main class="contact-page">
      <!-- Page Header Section -->
