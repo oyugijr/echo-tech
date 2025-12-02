@@ -43,23 +43,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($password !== $confirm_password) {
         $error = 'Passwords do not match.';
     } else {
-        try {
-            // Check if email already exists
-            $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-            
-            if ($stmt->fetch()) {
-                $error = 'An account with this email already exists.';
-            } else {
-                // Create new user
-                $hashedPassword = hashPassword($password);
-                $stmt = $pdo->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())");
-                $stmt->execute([$name, $email, $hashedPassword]);
+        if (!$pdo) {
+            $error = 'Database connection unavailable. Please try again later.';
+        } else {
+            try {
+                // Check if email already exists
+                $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+                $stmt->execute([$email]);
                 
-                redirectWithMessage('login.php', 'Account created successfully! Please sign in.', 'success');
+                if ($stmt->fetch()) {
+                    $error = 'An account with this email already exists.';
+                } else {
+                    // Create new user
+                    $hashedPassword = hashPassword($password);
+                    $stmt = $pdo->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())");
+                    $stmt->execute([$name, $email, $hashedPassword]);
+                    
+                    redirectWithMessage('login.php', 'Account created successfully! Please sign in.', 'success');
+                }
+            } catch (PDOException $e) {
+                $error = 'An error occurred. Please try again later.';
             }
-        } catch (PDOException $e) {
-            $error = 'An error occurred. Please try again later.';
         }
     }
 }

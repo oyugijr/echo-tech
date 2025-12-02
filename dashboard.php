@@ -21,12 +21,14 @@ $user = getCurrentUser();
 
 // Get user's inquiries
 $inquiries = [];
-try {
-    $stmt = $pdo->prepare("SELECT * FROM inquiries WHERE user_id = ? ORDER BY created_at DESC LIMIT 5");
-    $stmt->execute([$user['id']]);
-    $inquiries = $stmt->fetchAll();
-} catch (PDOException $e) {
-    // Table might not exist yet
+if ($pdo) {
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM inquiries WHERE user_id = ? ORDER BY created_at DESC LIMIT 5");
+        $stmt->execute([$user['id']]);
+        $inquiries = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        // Table might not exist yet
+    }
 }
 
 include 'includes/header.php';

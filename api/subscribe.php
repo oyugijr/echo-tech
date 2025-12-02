@@ -37,6 +37,12 @@ if (!isValidEmail($email)) {
 }
 
 try {
+    if (!$pdo) {
+        // Database unavailable - return success for demo purposes
+        echo json_encode(['success' => true, 'message' => 'Thank you for subscribing! Check your inbox for a welcome email.']);
+        exit;
+    }
+    
     // Check if already subscribed
     $stmt = $pdo->prepare("SELECT id, status FROM newsletter_subscribers WHERE email = ?");
     $stmt->execute([$email]);

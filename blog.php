@@ -20,17 +20,23 @@ $offset = ($page - 1) * $perPage;
 $posts = [];
 $totalPosts = 0;
 
-try {
-    // Get total count
-    $stmt = $pdo->query("SELECT COUNT(*) FROM blog_posts WHERE status = 'published'");
-    $totalPosts = $stmt->fetchColumn();
-    
-    // Get posts for current page
-    $stmt = $pdo->prepare("SELECT * FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ? OFFSET ?");
-    $stmt->execute([$perPage, $offset]);
-    $posts = $stmt->fetchAll();
-} catch (PDOException $e) {
-    // Table might not exist - use sample data
+if ($pdo) {
+    try {
+        // Get total count
+        $stmt = $pdo->query("SELECT COUNT(*) FROM blog_posts WHERE status = 'published'");
+        $totalPosts = $stmt->fetchColumn();
+        
+        // Get posts for current page
+        $stmt = $pdo->prepare("SELECT * FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ? OFFSET ?");
+        $stmt->execute([$perPage, $offset]);
+        $posts = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        // Table might not exist - use sample data
+    }
+}
+
+// Use sample data if no posts from database
+if (empty($posts)) {
     $posts = [
         [
             'id' => 1,
