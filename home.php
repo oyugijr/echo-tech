@@ -8,8 +8,17 @@
     <title>Home - EcoTech Solutions</title>
 </head>
 <body>
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/db_connect.php'; ?>
+<?php 
+require_once __DIR__ . '/bootstrap.php';
+
+use EcoTech\Modules\Pages\PagesService;
+
+// Get featured projects from the Pages service
+$pagesService = new PagesService($app->database());
+$projects = $pagesService->getFeaturedProjects(3);
+
+include 'includes/header.php'; 
+?>
 
 <main class="home-page">
     <!-- Hero Section -->
@@ -64,28 +73,7 @@
             </div>
             
             <div class="projects-grid">
-                <?php 
-                $projects = [];
-                if ($pdo) {
-                    try {
-                        $stmt = $pdo->query("SELECT * FROM projects WHERE featured = TRUE ORDER BY year DESC LIMIT 3");
-                        $projects = $stmt->fetchAll();
-                    } catch (PDOException $e) {
-                        // Table might not exist - use sample data
-                    }
-                }
-                
-                // Use sample data if no projects from database
-                if (empty($projects)) {
-                    $projects = [
-                        ['id' => 1, 'title' => 'Smart Energy Grid', 'description' => 'Innovative smart grid solution reducing energy waste by 40%', 'image' => 'smart-grid.jpg'],
-                        ['id' => 2, 'title' => 'Water Conservation System', 'description' => 'Advanced water recycling system for industrial facilities', 'image' => 'water-system.jpg'],
-                        ['id' => 3, 'title' => 'Solar Panel Integration', 'description' => 'Complete solar energy solution for commercial buildings', 'image' => 'solar-panels.jpg']
-                    ];
-                }
-                
-                foreach ($projects as $project):
-                ?>
+                <?php foreach ($projects as $project): ?>
                 <div class="project-card">
                     <img src="images/projects/<?= htmlspecialchars($project['image']) ?>" alt="<?= htmlspecialchars($project['title']) ?>" onerror="this.src='images/projects/default.jpg'">
                     <div class="project-info">

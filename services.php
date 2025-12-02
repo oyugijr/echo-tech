@@ -8,8 +8,17 @@
     <title>Services - EcoTech Solutions</title>
 </head>
 <body>
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/db_connect.php'; ?>
+<?php 
+require_once __DIR__ . '/bootstrap.php';
+
+use EcoTech\Modules\Pages\PagesService;
+
+// Get services from the Pages service
+$pagesService = new PagesService($app->database());
+$services = $pagesService->getServices();
+
+include 'includes/header.php'; 
+?>
 
 <main class="services-main">
     <section class="services-intro">
@@ -18,29 +27,7 @@
     </section>
 
     <div class="services-grid">
-    <?php 
-    $services = [];
-    if ($pdo) {
-        try {
-            $stmt = $pdo->query("SELECT * FROM services");
-            $services = $stmt->fetchAll();
-        } catch (PDOException $e) {
-            // Table might not exist - use sample data
-        }
-    }
-    
-    // Use sample data if no services from database
-    if (empty($services)) {
-        $services = [
-            ['title' => 'Smart Energy Management', 'description' => 'Intelligent energy monitoring and optimization systems for maximum efficiency', 'image' => 'energy-management.jpg', 'features' => '["Real-time energy monitoring","Automated optimization","Cost reduction analytics"]'],
-            ['title' => 'Water Conservation Solutions', 'description' => 'Advanced water recycling and conservation technologies', 'image' => 'water-conservation.jpg', 'features' => '["Smart irrigation systems","Water recycling","Leak detection"]'],
-            ['title' => 'Sustainable Infrastructure', 'description' => 'Green building and infrastructure consulting services', 'image' => 'sustainable-infra.jpg', 'features' => '["LEED certification support","Green materials consulting","Energy-efficient design"]'],
-            ['title' => 'Environmental Consulting', 'description' => 'Expert guidance on environmental compliance and sustainability', 'image' => 'consulting.jpg', 'features' => '["Regulatory compliance","Sustainability audits","Carbon footprint analysis"]']
-        ];
-    }
-    
-    foreach ($services as $service):
-    ?>
+    <?php foreach ($services as $service): ?>
     <div class="service-card">
         <div class="service-image" style="background-image: url('images/services/<?= htmlspecialchars($service['image']) ?>')"></div>
         <div class="service-header">

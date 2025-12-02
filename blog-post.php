@@ -9,69 +9,15 @@
 </head>
 <body>
 <?php 
-require_once 'includes/auth.php';
-require_once 'includes/db_connect.php';
+require_once __DIR__ . '/bootstrap.php';
+
+use EcoTech\Modules\Blog\BlogService;
 
 $slug = $_GET['slug'] ?? '';
-$post = null;
 
-try {
-    if ($slug && $pdo) {
-        $stmt = $pdo->prepare("SELECT * FROM blog_posts WHERE slug = ? AND status = 'published'");
-        $stmt->execute([$slug]);
-        $post = $stmt->fetch();
-    }
-} catch (PDOException $e) {
-    // Use sample post
-}
-
-// Sample post if not found in database
-if (!$post) {
-    $post = [
-        'id' => 1,
-        'title' => '10 Ways to Reduce Your Carbon Footprint at Home',
-        'content' => '
-            <p>Climate change is one of the most pressing challenges of our time, and while large-scale solutions are essential, individual actions can make a significant difference. Here are ten practical ways you can reduce your carbon footprint at home.</p>
-            
-            <h2>1. Switch to Renewable Energy</h2>
-            <p>Consider installing solar panels or switching to a green energy provider. Many utility companies now offer renewable energy options that can significantly reduce your household\'s carbon emissions.</p>
-            
-            <h2>2. Improve Home Insulation</h2>
-            <p>Proper insulation reduces the energy needed for heating and cooling. Check your attic, walls, and windows for areas where heat might be escaping.</p>
-            
-            <h2>3. Use Energy-Efficient Appliances</h2>
-            <p>When it\'s time to replace appliances, look for ENERGY STAR certified products. These use significantly less energy than standard models.</p>
-            
-            <h2>4. Reduce Water Usage</h2>
-            <p>Install low-flow showerheads and faucets, fix leaky pipes, and consider collecting rainwater for garden use.</p>
-            
-            <h2>5. Practice Smart Thermostat Management</h2>
-            <p>A programmable thermostat can reduce energy consumption by automatically adjusting temperatures when you\'re asleep or away from home.</p>
-            
-            <h2>6. Choose Sustainable Transportation</h2>
-            <p>When possible, walk, bike, or use public transportation. If you drive, consider carpooling or switching to an electric or hybrid vehicle.</p>
-            
-            <h2>7. Reduce, Reuse, Recycle</h2>
-            <p>Follow the three R\'s: reduce consumption, reuse items when possible, and properly recycle materials that can be processed.</p>
-            
-            <h2>8. Eat More Plant-Based Meals</h2>
-            <p>The meat industry is a significant contributor to greenhouse gas emissions. Even reducing meat consumption by a few meals per week can make a difference.</p>
-            
-            <h2>9. Support Sustainable Brands</h2>
-            <p>Choose products from companies committed to sustainable practices and transparent supply chains.</p>
-            
-            <h2>10. Plant Trees and Gardens</h2>
-            <p>Trees absorb carbon dioxide and provide habitat for wildlife. Even a small garden can contribute to local biodiversity and reduce your carbon footprint.</p>
-            
-            <h2>Conclusion</h2>
-            <p>Every action counts in the fight against climate change. By implementing these strategies, you can reduce your environmental impact while often saving money on utilities and living a healthier lifestyle.</p>
-        ',
-        'image' => 'carbon-footprint.jpg',
-        'category' => 'Sustainability Tips',
-        'author' => 'Sarah Chen',
-        'published_at' => date('Y-m-d H:i:s', strtotime('-2 days'))
-    ];
-}
+// Get blog post using the Blog service
+$blogService = new BlogService($app->database());
+$post = $blogService->getPostBySlug($slug);
 
 include 'includes/header.php';
 ?>

@@ -7,7 +7,10 @@
     <title>Privacy Policy - EcoTech Solutions</title>
 </head>
 <body>
-<?php include 'includes/header.php'; ?>
+<?php 
+require_once __DIR__ . '/bootstrap.php';
+include 'includes/header.php'; 
+?>
 
 <main class="legal-page">
     <div class="legal-container">
