@@ -9,93 +9,20 @@
 </head>
 <body>
 <?php 
-require_once 'includes/auth.php';
-require_once 'includes/db_connect.php';
+require_once __DIR__ . '/bootstrap.php';
 
-// Get blog posts with pagination
+use EcoTech\Modules\Blog\BlogService;
+
+// Get blog posts with pagination using the Blog service
 $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 $perPage = 6;
-$offset = ($page - 1) * $perPage;
 
-$posts = [];
-$totalPosts = 0;
+$blogService = new BlogService($app->database());
+$data = $blogService->getPosts($page, $perPage);
 
-if ($pdo) {
-    try {
-        // Get total count
-        $stmt = $pdo->query("SELECT COUNT(*) FROM blog_posts WHERE status = 'published'");
-        $totalPosts = $stmt->fetchColumn();
-        
-        // Get posts for current page
-        $stmt = $pdo->prepare("SELECT * FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ? OFFSET ?");
-        $stmt->execute([$perPage, $offset]);
-        $posts = $stmt->fetchAll();
-    } catch (PDOException $e) {
-        // Table might not exist - use sample data
-    }
-}
-
-// Use sample data if no posts from database
-if (empty($posts)) {
-    $posts = [
-        [
-            'id' => 1,
-            'title' => '10 Ways to Reduce Your Carbon Footprint at Home',
-            'slug' => '10-ways-reduce-carbon-footprint',
-            'excerpt' => 'Discover practical and easy-to-implement strategies to make your home more environmentally friendly and reduce your carbon emissions.',
-            'image' => 'carbon-footprint.jpg',
-            'category' => 'Sustainability Tips',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-2 days'))
-        ],
-        [
-            'id' => 2,
-            'title' => 'The Future of Renewable Energy in 2025',
-            'slug' => 'future-renewable-energy-2025',
-            'excerpt' => 'Explore the latest innovations and trends shaping the renewable energy landscape and what they mean for businesses and consumers.',
-            'image' => 'renewable-energy.jpg',
-            'category' => 'Industry Insights',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-5 days'))
-        ],
-        [
-            'id' => 3,
-            'title' => 'How Smart Buildings Are Revolutionizing Energy Efficiency',
-            'slug' => 'smart-buildings-energy-efficiency',
-            'excerpt' => 'Learn how IoT and AI technologies are transforming buildings into intelligent energy-saving systems.',
-            'image' => 'smart-building.jpg',
-            'category' => 'Technology',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-1 week'))
-        ],
-        [
-            'id' => 4,
-            'title' => 'EcoTech Solutions Achieves Carbon Neutral Certification',
-            'slug' => 'ecotech-carbon-neutral-certification',
-            'excerpt' => 'We are proud to announce our achievement of carbon neutral certification, reflecting our commitment to sustainability.',
-            'image' => 'certification.jpg',
-            'category' => 'Company News',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-2 weeks'))
-        ],
-        [
-            'id' => 5,
-            'title' => 'Water Conservation Strategies for Industrial Facilities',
-            'slug' => 'water-conservation-industrial',
-            'excerpt' => 'Practical approaches to reducing water consumption and implementing sustainable water management in industrial settings.',
-            'image' => 'water-conservation.jpg',
-            'category' => 'Sustainability Tips',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-3 weeks'))
-        ],
-        [
-            'id' => 6,
-            'title' => 'Partnership Announcement: Green Energy Alliance',
-            'slug' => 'partnership-green-energy-alliance',
-            'excerpt' => 'EcoTech Solutions joins forces with leading organizations to accelerate the transition to clean energy.',
-            'image' => 'partnership.jpg',
-            'category' => 'Company News',
-            'published_at' => date('Y-m-d H:i:s', strtotime('-1 month'))
-        ]
-    ];
-}
-
-$totalPages = max(1, ceil($totalPosts / $perPage)) ?: 1;
+$posts = $data['posts'];
+$totalPosts = $data['total'];
+$totalPages = $data['totalPages'];
 
 include 'includes/header.php';
 ?>

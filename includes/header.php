@@ -1,7 +1,13 @@
 <?php
-// Include auth if not already included
+/**
+ * Header Component
+ * 
+ * Uses the modular Auth service for authentication checks.
+ */
+
+// Include bootstrap if not already included (provides isLoggedIn function)
 if (!function_exists('isLoggedIn')) {
-    require_once __DIR__ . '/auth.php';
+    require_once __DIR__ . '/../bootstrap.php';
 }
 ?>
 <header class="main-header">

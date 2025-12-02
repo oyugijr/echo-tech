@@ -254,6 +254,7 @@ vendor/bin/phpunit
 
 ---
 
+<<<<<<< HEAD
 ## Architecture Overview
 
 ### MVC Pattern
@@ -472,3 +473,64 @@ This project is licensed under the MIT License.
 - Follows PSR-4 autoloading standard
 - Uses Composer for dependency management
 - Inspired by Laravel and other modern PHP frameworks
+=======
+## Architecture
+
+The project follows a **modular architecture** pattern with clear separation of concerns:
+
+### Directory Structure
+
+```
+echo-tech/
+├── src/                          # Source code (modular architecture)
+│   ├── Core/                     # Core framework components
+│   │   ├── Application.php       # Central application bootstrap
+│   │   ├── Config/               # Configuration management
+│   │   │   └── Config.php
+│   │   ├── Database/             # Database connection handling
+│   │   │   └── Connection.php
+│   │   ├── Http/                 # HTTP layer (Request/Response/Controller)
+│   │   │   ├── Controller.php
+│   │   │   ├── Request.php
+│   │   │   └── Response.php
+│   │   └── View/                 # View helpers
+│   │       └── ViewHelper.php
+│   └── Modules/                  # Feature modules
+│       ├── Auth/                 # Authentication module
+│       │   ├── AuthService.php
+│       │   └── Controllers/
+│       │       └── AuthController.php
+│       ├── Blog/                 # Blog module
+│       │   ├── BlogService.php
+│       │   └── Controllers/
+│       │       └── BlogController.php
+│       ├── Newsletter/           # Newsletter subscription module
+│       │   ├── NewsletterService.php
+│       │   └── Controllers/
+│       │       └── NewsletterController.php
+│       ├── Pages/                # Static pages module
+│       │   ├── PagesService.php
+│       │   └── Controllers/
+│       │       └── PagesController.php
+│       └── Search/               # Search module
+│           ├── SearchService.php
+│           └── Controllers/
+│               └── SearchController.php
+├── api/                          # API endpoints
+├── css/                          # Stylesheets
+├── database/                     # Database schema
+├── images/                       # Static images
+├── includes/                     # Legacy includes (backward compatible)
+├── bootstrap.php                 # Application bootstrap file
+├── composer.json                 # Composer dependencies
+└── *.php                         # Public entry points
+```
+
+### Key Concepts
+
+- **Application**: Central singleton that initializes configuration and database
+- **Modules**: Self-contained feature units with their own services and controllers
+- **Services**: Business logic layer, independent of HTTP concerns
+- **Controllers**: Handle HTTP requests and delegate to services
+- **Backward Compatibility**: Legacy includes still work through the bootstrap file
+>>>>>>> e1852c72b5d2c03d0e5055bb2e6dcb2c5b35629c
