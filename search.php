@@ -9,10 +9,11 @@
 </head>
 <body>
 <?php 
-require_once 'includes/auth.php';
-include 'includes/header.php';
+require_once __DIR__ . '/bootstrap.php';
 
 $query = htmlspecialchars($_GET['q'] ?? '');
+
+include 'includes/header.php';
 ?>
 
 <main class="search-page">
