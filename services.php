@@ -19,8 +19,27 @@
 
     <div class="services-grid">
     <?php 
-    $stmt = $pdo->query("SELECT * FROM services");
-    while ($service = $stmt->fetch()):
+    $services = [];
+    if ($pdo) {
+        try {
+            $stmt = $pdo->query("SELECT * FROM services");
+            $services = $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // Table might not exist - use sample data
+        }
+    }
+    
+    // Use sample data if no services from database
+    if (empty($services)) {
+        $services = [
+            ['title' => 'Smart Energy Management', 'description' => 'Intelligent energy monitoring and optimization systems for maximum efficiency', 'image' => 'energy-management.jpg', 'features' => '["Real-time energy monitoring","Automated optimization","Cost reduction analytics"]'],
+            ['title' => 'Water Conservation Solutions', 'description' => 'Advanced water recycling and conservation technologies', 'image' => 'water-conservation.jpg', 'features' => '["Smart irrigation systems","Water recycling","Leak detection"]'],
+            ['title' => 'Sustainable Infrastructure', 'description' => 'Green building and infrastructure consulting services', 'image' => 'sustainable-infra.jpg', 'features' => '["LEED certification support","Green materials consulting","Energy-efficient design"]'],
+            ['title' => 'Environmental Consulting', 'description' => 'Expert guidance on environmental compliance and sustainability', 'image' => 'consulting.jpg', 'features' => '["Regulatory compliance","Sustainability audits","Carbon footprint analysis"]']
+        ];
+    }
+    
+    foreach ($services as $service):
     ?>
     <div class="service-card">
         <div class="service-image" style="background-image: url('images/services/<?= htmlspecialchars($service['image']) ?>')"></div>
@@ -30,13 +49,13 @@
         </div>
         <ul class="service-features">
             <?php $features = json_decode($service['features']); ?>
-            <?php foreach ($features as $feature): ?>
+            <?php if ($features): foreach ($features as $feature): ?>
             <li><?= htmlspecialchars($feature) ?></li>
-            <?php endforeach; ?>
+            <?php endforeach; endif; ?>
         </ul>
         <a href="#" class="learn-more">Learn More →</a>
     </div>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
 </div>
 
     <section class="process-section">

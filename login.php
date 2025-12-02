@@ -44,20 +44,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!isValidEmail($email)) {
         $error = 'Please enter a valid email address.';
     } else {
-        try {
-            $stmt = $pdo->prepare("SELECT id, name, email, password FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-            $user = $stmt->fetch();
-            
-            if ($user && verifyPassword($password, $user['password'])) {
-                loginUser($user['id'], $user['name'], $user['email']);
-                header('Location: dashboard.php');
-                exit;
-            } else {
-                $error = 'Invalid email or password.';
+        if (!$pdo) {
+            $error = 'Database connection unavailable. Please try again later.';
+        } else {
+            try {
+                $stmt = $pdo->prepare("SELECT id, name, email, password FROM users WHERE email = ?");
+                $stmt->execute([$email]);
+                $user = $stmt->fetch();
+                
+                if ($user && verifyPassword($password, $user['password'])) {
+                    loginUser($user['id'], $user['name'], $user['email']);
+                    header('Location: dashboard.php');
+                    exit;
+                } else {
+                    $error = 'Invalid email or password.';
+                }
+            } catch (PDOException $e) {
+                $error = 'An error occurred. Please try again later.';
             }
-        } catch (PDOException $e) {
-            $error = 'An error occurred. Please try again later.';
         }
     }
 }

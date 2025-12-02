@@ -31,22 +31,23 @@ $results = [
 ];
 
 try {
-    // Search services
-    $stmt = $pdo->prepare("SELECT id, title, description FROM services WHERE title LIKE ? OR description LIKE ? LIMIT 5");
-    $searchTerm = "%$query%";
-    $stmt->execute([$searchTerm, $searchTerm]);
-    $results['services'] = $stmt->fetchAll();
-    
-    // Search projects
-    $stmt = $pdo->prepare("SELECT id, title, description FROM projects WHERE title LIKE ? OR description LIKE ? LIMIT 5");
-    $stmt->execute([$searchTerm, $searchTerm]);
-    $results['projects'] = $stmt->fetchAll();
-    
-    // Search blog posts
-    $stmt = $pdo->prepare("SELECT id, title, excerpt, slug FROM blog_posts WHERE (title LIKE ? OR excerpt LIKE ? OR content LIKE ?) AND status = 'published' LIMIT 5");
-    $stmt->execute([$searchTerm, $searchTerm, $searchTerm]);
-    $results['blog'] = $stmt->fetchAll();
-    
+    if ($pdo) {
+        // Search services
+        $stmt = $pdo->prepare("SELECT id, title, description FROM services WHERE title LIKE ? OR description LIKE ? LIMIT 5");
+        $searchTerm = "%$query%";
+        $stmt->execute([$searchTerm, $searchTerm]);
+        $results['services'] = $stmt->fetchAll();
+        
+        // Search projects
+        $stmt = $pdo->prepare("SELECT id, title, description FROM projects WHERE title LIKE ? OR description LIKE ? LIMIT 5");
+        $stmt->execute([$searchTerm, $searchTerm]);
+        $results['projects'] = $stmt->fetchAll();
+        
+        // Search blog posts
+        $stmt = $pdo->prepare("SELECT id, title, excerpt, slug FROM blog_posts WHERE (title LIKE ? OR excerpt LIKE ? OR content LIKE ?) AND status = 'published' LIMIT 5");
+        $stmt->execute([$searchTerm, $searchTerm, $searchTerm]);
+        $results['blog'] = $stmt->fetchAll();
+    }
 } catch (PDOException $e) {
     // Tables might not exist - provide sample results
 }

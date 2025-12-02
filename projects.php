@@ -19,8 +19,27 @@
 
     <div class="projects-grid">
     <?php 
-    $stmt = $pdo->query("SELECT * FROM projects ORDER BY year DESC");
-    while ($project = $stmt->fetch()):
+    $projects = [];
+    if ($pdo) {
+        try {
+            $stmt = $pdo->query("SELECT * FROM projects ORDER BY year DESC");
+            $projects = $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // Table might not exist - use sample data
+        }
+    }
+    
+    // Use sample data if no projects from database
+    if (empty($projects)) {
+        $projects = [
+            ['id' => 1, 'title' => 'Smart Energy Grid Implementation', 'description' => 'Comprehensive smart grid solution reducing energy waste and improving efficiency', 'image' => 'smart-grid.jpg', 'client' => 'Global Energy Corp', 'year' => '2024', 'location' => 'North America'],
+            ['id' => 2, 'title' => 'Industrial Water Conservation', 'description' => 'Advanced water recycling system for manufacturing facilities', 'image' => 'water-system.jpg', 'client' => 'Manufacturing Inc', 'year' => '2023', 'location' => 'Europe'],
+            ['id' => 3, 'title' => 'Solar Panel Campus', 'description' => 'Large-scale solar energy installation for educational campus', 'image' => 'solar-panels.jpg', 'client' => 'State University', 'year' => '2023', 'location' => 'California, USA'],
+            ['id' => 4, 'title' => 'Green Building Retrofit', 'description' => 'Sustainable renovation of historic office building', 'image' => 'green-building.jpg', 'client' => 'Downtown Properties', 'year' => '2022', 'location' => 'New York, USA']
+        ];
+    }
+    
+    foreach ($projects as $project):
     ?>
     <div class="project-card">
         <div class="project-image" style="background-image: url('images/projects/<?= htmlspecialchars($project['image']) ?>')"></div>
@@ -39,7 +58,7 @@
             </a>
         </div>
     </div>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
 </div>
 
 <section class="case-studies">

@@ -17,9 +17,14 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
+$pdo = null;
+$db_error = null;
+
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    $db_error = $e->getMessage();
+    // Log error but don't throw - allow pages to load without database
+    error_log("Database connection failed: " . $db_error);
 }
 ?>

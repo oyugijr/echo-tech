@@ -16,7 +16,7 @@ $slug = $_GET['slug'] ?? '';
 $post = null;
 
 try {
-    if ($slug) {
+    if ($slug && $pdo) {
         $stmt = $pdo->prepare("SELECT * FROM blog_posts WHERE slug = ? AND status = 'published'");
         $stmt->execute([$slug]);
         $post = $stmt->fetch();
