@@ -100,7 +100,8 @@ class PagesService
 
         if ($pdo) {
             try {
-                $stmt = $pdo->query("SELECT * FROM projects WHERE featured = TRUE ORDER BY year DESC LIMIT " . (int) $limit);
+                $stmt = $pdo->prepare("SELECT * FROM projects WHERE featured = TRUE ORDER BY year DESC LIMIT ?");
+                $stmt->execute([$limit]);
                 $projects = $stmt->fetchAll();
                 if (!empty($projects)) {
                     return $projects;

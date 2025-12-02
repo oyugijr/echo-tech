@@ -115,12 +115,11 @@ class SearchService
      */
     private function searchStaticPages(string $query): array
     {
-        $queryLower = strtolower($query);
         $results = [];
 
         foreach ($this->staticPages as $page) {
-            if (stripos($page['title'], $queryLower) !== false ||
-                stripos($page['description'], $queryLower) !== false) {
+            if (stripos($page['title'], $query) !== false ||
+                stripos($page['description'], $query) !== false) {
                 $results[] = $page;
             }
         }
